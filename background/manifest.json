@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "Chrome Text-exn-sion",
+    "version": "0.1",
+    "content_scripts": [{
+      "run_at": "document_end",
+      "matches": ["<all_urls>"],
+      "css": ["content/style.css"],
+      "js": ["packages/jquery.min.js", "packages/underscore-esm-min.js", "packages/findAndReplaceDOMText.js", "packages/bootstrap.min.js", "content/replaceWords.js"]
+    }],
+    "icons": {"128": "icons/thumb-nail.jpg"},
+    "background": {
+    "scripts": ["content/background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": "icons/subject.png",
+    "default_popup": "content/pop_display.html"
+  },
+  "permissions": ["activeTab", "storage", "https://translation.googleapis.com/*"]
+}
